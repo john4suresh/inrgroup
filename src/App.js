@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Header from './components/Header';
+import HomeBanner from "./components/HomeBanner";
+import Tabs from './components/Tabs';
+import Footer from "./components/Footer";
+import Modal from "./components/Modal";
+import MenuData from "./data";
 
 function App() {
+  const [showModal, setShowModal] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-white max-w-[1440px] container mx-auto relative">
+      <Header setShowModal={setShowModal} />
+      <HomeBanner />
+      <Tabs color="red" data={MenuData} />
+      <Footer />
+      <Modal showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }
